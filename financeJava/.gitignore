@@ -1,0 +1,30 @@
+# ─── Frontend ────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+
+# ─── Backend (Java/Maven) ───────────────────────────────────────────
+backend/target/
+backend/*.jar
+backend/logs/
+
+# ─── Admin Panel (Python) ───────────────────────────────────────────
+backend/adminpanel/venv/
+backend/adminpanel/.venv/
+backend/adminpanel/__pycache__/
+
+# ─── IDE / Editor ───────────────────────────────────────────────────
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.iml
+*.suo
+*.sw?
+
+# ─── OS ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Environment ────────────────────────────────────────────────────
+.env
+.env.local
+*.local
