@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,17 @@ public class AuthController {
     @Operation(summary = "User login", description = "Authenticate with username/password and receive JWT token")
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
+        JwtResponse response = authService.login(loginRequest);
+        return ResponseEntity.ok(response);
+    }
+    
+    @Operation(summary = "User login (Form)", description = "Authenticate with form-encoded username/password")
+    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public ResponseEntity<JwtResponse> loginForm(
+            @RequestParam String username, 
+            @RequestParam String password) {
+        
+        LoginRequest loginRequest = new LoginRequest(username, password);
         JwtResponse response = authService.login(loginRequest);
         return ResponseEntity.ok(response);
     }

@@ -138,11 +138,13 @@ public final class DtoMapper {
                 .invoicePath(item.getInvoicePath())
                 .productImagePath(item.getProductImagePath())
                 .recipient(toRecipientReadResponse(item.getRecipient()))
+                .recipientId(item.getRecipient() != null ? item.getRecipient().getId() : null)
                 .categories(item.getCategories() != null ?
                         item.getCategories().stream()
                                 .map(DtoMapper::toCategoryReadResponse)
                                 .collect(Collectors.toList()) : Collections.emptyList())
                 .standardCategory(toCategoryReadResponse(item.getStandardCategory()))
+                .standardCategoryId(item.getStandardCategory() != null ? item.getStandardCategory().getId() : null)
                 .transactionFee(item.getTransactionFee())
                 .build();
     }

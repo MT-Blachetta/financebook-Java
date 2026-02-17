@@ -302,23 +302,7 @@ const RecipientInfo = styled.div`
   }
 `;
 
-//  container for the category chips
-const CategoriesInfo = styled.div`
-  display: flex; //  arranges the chips in a row.
-  flex-wrap: wrap; //  allows the chips to wrap to the next line if there's not enough space.
-  gap: 0.25rem; //  adds some space between the chips.
-  margin-top: var(--spacing-xs); //  adds some space above the container.
-`;
 
-//  single category chip
-const CategoryChip = styled.span`
-  background: #555; //  sets the background color.
-  color: #ccc; //  sets the text color.
-  padding: 0.125rem 0.5rem; //  adds some space inside the chip.
-  border-radius: var(--radius-sm); //  rounds the corners of the chip.
-  font-size: 0.7rem; //  sets the font size.
-  font-weight: 500; //  makes the font bold.
-`;
 
 //  container for the amount, which pushes it to the right side of the item
 const AmountContainer = styled.div`
@@ -987,15 +971,7 @@ const PaymentItemLine: React.FC<PaymentItemLineProps> = ({ item, allCategories }
           )}
 
           {/* enhanced categories display */}
-          {item.categories && item.categories.length > 0 && (
-            <CategoriesInfo>
-              {item.categories.map(category => (
-                <CategoryChip key={category.id}>
-                  {category.name}
-                </CategoryChip>
-              ))}
-            </CategoriesInfo>
-          )}
+
         </MetaInfo>
         <AmountContainer>
           <AmountText $negative={isExpense(item)}>

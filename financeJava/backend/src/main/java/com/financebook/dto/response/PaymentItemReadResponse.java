@@ -29,8 +29,10 @@ public class PaymentItemReadResponse {
     
     // Relationships
     private RecipientReadResponse recipient;
+    private Long recipientId;
     private List<CategoryReadResponse> categories;
     private CategoryReadResponse standardCategory;
+    private Long standardCategoryId;
     
     // Computed field
     private BigDecimal transactionFee;
